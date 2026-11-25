@@ -77,6 +77,8 @@ A versão para submissão à revista está em `artigo_rbca/artigo_rbca.tex`, ada
 
 Periódico escolhido: **RBCA — Revista Brasileira de Computação Aplicada (UPF)**. Justificativa: o trabalho é aplicado, centrado em pipeline computacional, integração de bases abertas e análise estatística, o que se alinha ao escopo da RBCA (que cita explicitamente computação aplicada à agricultura); a RITA tem perfil mais teórico e não lista agricultura no escopo. A RBCA é mais fácil no aceite temático, porém mais exigente na formatação. Os comprovantes de submissão (CSBC e periódico) devem ser anexados pelo discente após o envio.
 
+Como as submissões da RBCA estão suspensas desde 29/08/2026, preparou-se também a versão para a **RITA** em `artigo_rita/artigo_rita.tex` (mesmo conteúdo, com a seção obrigatória "Declaration of AI-Assisted Use in Writing" antes das referências). O link oficial do modelo LaTeX da RITA está indisponível; para compilar, crie um projeto no Overleaf a partir do template "Revista de Informática Teórica e Aplicada - RITA", substitua o arquivo de exemplo pelo `artigo_rita.tex` e mantenha `RITA.cls`, `artigo_bib.bib` e `figuras/`. O ZIP `artigo_rita_overleaf.zip` reúne texto, referências e figuras.
+
 ## Limitações
 
 - Apenas 11 observações anuais: baixo poder estatístico; nenhuma regressão atingiu significância na amostra completa.
