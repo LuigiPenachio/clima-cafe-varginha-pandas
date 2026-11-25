@@ -61,7 +61,7 @@ A cafeicultura brasileira tem papel central na economia rural e \'e sens\'ivel \
 
 Varginha/MG \'e um dos principais polos cafeeiros do Sul de Minas e conta com uma esta\c{c}\~ao autom\'atica do INMET (c\'odigo A515) com s\'erie cont\'inua no per\'iodo analisado. Ao mesmo tempo, o IBGE divulga anualmente o rendimento municipal da lavoura por meio da Pesquisa Agr\'icola Municipal (PAM) e o efetivo de rebanhos pela Pesquisa da Pecu\'aria Municipal (PPM). A combina\c{c}\~ao dessas fontes permite construir um painel municipal anual com informa\c{c}\~ao clim\'atica e agron\^omica \cite{inmet2026,ibgePAM2025,ibgePPM2025}.
 
-Apesar da disponibilidade dos dados, ainda s\~ao raros os estudos reproduz\'iveis que documentem, em c\'odigo aberto, a limpeza das s\'eries meteorol\'ogicas, o tratamento de falhas de sensores e a jun\c{c}\~ao com estat\'isticas agropecu\'arias. Este artigo preenche essa lacuna e responde a tr\^es perguntas: (i) anomalias de precipita\c{c}\~ao e temperatura explicam varia\c{c}ções anuais do rendimento do caf\'e em Varginha? (ii) janelas fenol\'ogicas apresentam associa\c{c}\~ao mais forte do que a m\'edia anual? (iii) o rebanho bovino responde \`a precipita\c{c}\~ao com defasagem de um ano?
+Apesar da disponibilidade dos dados, ainda s\~ao raros os estudos reproduz\'iveis que documentem, em c\'odigo aberto, a limpeza das s\'eries meteorol\'ogicas, o tratamento de falhas de sensores e a jun\c{c}\~ao com estat\'isticas agropecu\'arias. Este artigo preenche essa lacuna e responde a tr\^es perguntas: (i) anomalias de precipita\c{c}\~ao e temperatura explicam varia\c{c}\~oes anuais do rendimento do caf\'e em Varginha? (ii) janelas fenol\'ogicas apresentam associa\c{c}\~ao mais forte do que a m\'edia anual? (iii) o rebanho bovino responde \`a precipita\c{c}\~ao com defasagem de um ano?
 
 As hip\'oteses iniciais eram de associa\c{c}\~ao positiva entre chuva e rendimento, negativa entre calor na flora\c{c}\~ao e rendimento, e positiva entre chuva defasada e rebanho. Os resultados, como se ver\'a, n\~ao confirmam nenhuma delas de forma significativa.
 
@@ -89,7 +89,7 @@ Foram usadas tr\^es bases p\'ublicas, resumidas na Tabela~\ref{tab:bases}. Os ar
 \hline
 Base & Fonte & Unidade & Vari\'aveis \\
 \hline
-INMET BDMEP & ZIP anual A515 & hora/dia/m\'es/ano & precipita\c{c}\~ao, temperatura, dias com $T_{\max}>35\,^\circ$C \\
+INMET BDMEP & ZIP anual A515 & hora/dia/m\^es/ano & precipita\c{c}\~ao, temperatura, dias com $T_{\max}>35\,^\circ$C \\
 IBGE PAM & SIDRA 5457 & munic\'ipio/ano & rendimento de caf\'e, milho e soja (kg/ha) \\
 IBGE PPM & SIDRA 3939 & munic\'ipio/ano & efetivo de bovinos (cabe\c{c}as) \\
 \hline
@@ -105,7 +105,7 @@ A chave adotada foi o \textbf{ano}, com esta\c{c}\~ao e munic\'ipio como atribut
 
 Os CSVs do INMET apresentam dois layouts. At\'e 2018, as datas usam o formato \texttt{AAAA-MM-DD}, as horas \texttt{HH:MM} e o valor ausente \'e codificado como $-9999$. A partir de 2019, as datas usam \texttt{AAAA/MM/DD}, as horas \texttt{HHMM UTC} e as c{\'e}lulas vazias indicam aus\^encia. Ambos foram normalizados no pipeline. Foram descartados dias com menos de seis horas v\'alidas e meses com menos de quinze dias v\'alidos.
 
-A an\'alise de qualidade revelou um problema cr\'itico: a esta\c{c}\~ao registrou $0$ mm de precipita\c{c}\~ao em sequ\^encias de tr\^e a oito meses (mai--jul/2019, mai--jul/2022, mai--dez/2023 e jan--mar/2024), incompat\'iveis com a climatologia local: em maio e junho as medianas s\~ao de 24,6 e 27,1 mm, e em dezembro, de 219,2 mm. Tamb\'em havia meses ausentes (ago/2016 e dez/2025). Como n\~ao consultamos a documenta\c{c}\~ao do INMET sobre esses eventos, tratamos esses registros como suspeitos: sequ\^encias de pelo menos tr\^e meses com precipita\c{c}\~ao inferior a 1 mm foram marcadas como falha de sensor e, junto com os meses ausentes, imputadas pela mediana mensal calculada sobre os demais anos. Foram 19 meses imputados, oito deles apenas em 2023. Cada m\'es imputado foi sinalizado em uma coluna bin\'aria do painel.
+A an\'alise de qualidade revelou um problema cr\'itico: a esta\c{c}\~ao registrou $0$ mm de precipita\c{c}\~ao em sequ\^encias de tr\^es a oito meses (mai--jul/2019, mai--jul/2022, mai--dez/2023 e jan--mar/2024), incompat\'iveis com a climatologia local: em maio e junho as medianas s\~ao de 24,6 e 27,1 mm, e em dezembro, de 219,2 mm. Tamb\'em havia meses ausentes (ago/2016 e dez/2025). Como n\~ao consultamos a documenta\c{c}\~ao do INMET sobre esses eventos, tratamos esses registros como suspeitos: sequ\^encias de pelo menos tr\^es meses com precipita\c{c}\~ao inferior a 1 mm foram marcadas como falha de sensor e, junto com os meses ausentes, imputadas pela mediana mensal calculada sobre os demais anos. Foram 19 meses imputados, oito deles apenas em 2023. Cada m\^es imputado foi sinalizado em uma coluna bin\'aria do painel.
 
 \subsection{Indicadores clim\'aticos e janelas fenol\'ogicas}
 
@@ -238,7 +238,7 @@ M4: chuva de janeiro & 0,078 & $-0{,}024$ & 0,4050 \\
 \end{center}
 \end{table}
 
-A Figura~\ref{fig:scatter} ilustra o modelo M1: a linha ajustada tem inclina\c{c}\~ao positiva, por\'em os pontos est\~ao dispersos e o intervalo de confian\c{c}\~ao inclui a hip\'otese nula. A Figura~\ref{fig:calor} mostra a rela\c{c}\~ao negativa, tamb\'em n\~ao significativa, entre calor na flora\c{c}\~ao e rendimento.
+A Figura~\ref{fig:scatter} ilustra o modelo M1: a linha ajustada tem inclina\c{c}\~ao positiva, por\'em os pontos est\~ao dispersos e o intervalo de confian\c{c}a inclui a hip\'otese nula. A Figura~\ref{fig:calor} mostra a rela\c{c}\~ao negativa, tamb\'em n\~ao significativa, entre calor na flora\c{c}\~ao e rendimento.
 
 \begin{figure}[ht]
 \begin{center}
@@ -278,7 +278,7 @@ A regress\~ao do rebanho bovino contra a chuva do ano anterior resultou em $\bet
 \end{center}
 \end{figure}
 
-A an\'alise de sensibilidade excluiu os anos com sequ\^encias imputadas, restando 2015, 2016, 2017, 2018, 2020, 2021 e 2025. A correla\c{c}\~ao entre chuva anual e rendimento permaneceu nula ($\rho=0{,}234$; $p=0{,}6132$; $n=7$). A correla\c{c}\~ao entre temperatura na flora\c{c}\~ao e rendimento passou a ser forte e significativa ($\rho=-0{,}886$; $p=0{,}0188$), por\'em com apenas seis pares v\'alidos, por questa\~o de defasagem da janela. Esse resultado \'e explorat\'orio e n\~ao deve ser tratado como confirma\c{c}\~ao da hip\'otese.
+A an\'alise de sensibilidade excluiu os anos com sequ\^encias imputadas, restando 2015, 2016, 2017, 2018, 2020, 2021 e 2025. A correla\c{c}\~ao entre chuva anual e rendimento permaneceu nula ($\rho=0{,}234$; $p=0{,}6132$; $n=7$). A correla\c{c}\~ao entre temperatura na flora\c{c}\~ao e rendimento passou a ser forte e significativa ($\rho=-0{,}886$; $p=0{,}0188$), por\'em com apenas seis pares v\'alidos, por quest\~ao de defasagem da janela. Esse resultado \'e explorat\'orio e n\~ao deve ser tratado como confirma\c{c}\~ao da hip\'otese.
 
 \subsection{S\'erie agropecu\'aria comparada}
 
