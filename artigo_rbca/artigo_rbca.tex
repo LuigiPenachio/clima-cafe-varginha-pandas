@@ -52,7 +52,7 @@
 \vspace{6pt}
 
 \begin{abstract}
-Este trabalho integra dados do INMET e do IBGE para avaliar se anomalias clim\'aticas explicam o desempenho da cafeicultura em Varginha/MG entre 2015 e 2025. Um pipeline em Python e Pandas agrega medi\c{c}es da esta\c{c}\~ao A515 em indicadores anuais e janelas fenol\'ogicas e as junta aos rendimentos da PAM e ao rebanho da PPM, usando o ano como chave. Sequ\^encias longas de precipita\c{c}\~ao zero, identificadas como falha de sensor, foram imputadas pela mediana mensal. Correla\c{c}\~ao de Spearman, regress\~ao OLS, teste de Mann--Whitney e an\'alise de sensibilidade foram aplicados. A chuva anual apresentou $\rho=0,273$ ($p=0,416$) com o rendimento do caf\'e; a temperatura na flora\c{c}\~ao, $\rho=-0,418$ ($p=0,229$). Nenhuma rela\c{c}\~ao foi significativa a 5\%. Com onze anos de dados, n\~ao h\'a evid\^encia de efeito clim\'atico detect\'avel, o que refor\c{c}a a import\^ancia do controle de qualidade de sensores.
+Este trabalho integra dados do INMET e do IBGE para avaliar se anomalias clim\'aticas explicam o desempenho da cafeicultura em Varginha/MG entre 2015 e 2025. Um pipeline em Python e Pandas agrega medi\c{c}\~oes da esta\c{c}\~ao A515 em indicadores anuais e janelas fenol\'ogicas e as junta aos rendimentos da PAM e ao rebanho da PPM, usando o ano como chave. Sequ\^encias longas de precipita\c{c}\~ao zero, identificadas como falha de sensor, foram imputadas pela mediana mensal. Correla\c{c}\~ao de Spearman, regress\~ao OLS, teste de Mann--Whitney e an\'alise de sensibilidade foram aplicados. A chuva anual apresentou $\rho=0,273$ ($p=0,416$) com o rendimento do caf\'e; a temperatura na flora\c{c}\~ao, $\rho=-0,418$ ($p=0,229$). Nenhuma rela\c{c}\~ao foi significativa a 5\%. Com onze anos de dados, n\~ao h\'a evid\^encia de efeito clim\'atico detect\'avel, o que refor\c{c}a a import\^ancia do controle de qualidade de sensores.
 \end{abstract}
 
 \begin{keywords}
@@ -71,7 +71,7 @@ An\'alise de dados. Cafeicultura. Dados abertos.
 
 \section{Introdu\c{c}\~ao}
 
-A cafeicultura brasileira tem papel central na economia rural e \'e sens\'ivel \`a distribui\c{c}\~ao de chuva e \`as oscila\c{c}es t\'ermicas, especialmente nos est\'adios de flora\c{c}\~ao e forma\c{c}\~ao de frutos \cite{ipcc2021,aparecido2016}. No Sul de Minas Gerais, a colheita do caf\'e ar\'abica ocorre principalmente entre abril e agosto, enquanto a flora\c{c}\~ao acontece na primavera do ano anterior. Essa defasagem exige que o analista escolha janelas temporais alinhadas ao ciclo da cultura, e n\~ao apenas indicadores anuais de precipita\c{c}\~ao e temperatura \cite{meireles2009}.
+A cafeicultura brasileira tem papel central na economia rural e \'e sens\'ivel \`a distribui\c{c}\~ao de chuva e \`as oscila\c{c}\~oes t\'ermicas, especialmente nos est\'adios de flora\c{c}\~ao e forma\c{c}\~ao de frutos \cite{ipcc2021,aparecido2016}. No Sul de Minas Gerais, a colheita do caf\'e ar\'abica ocorre principalmente entre abril e agosto, enquanto a flora\c{c}\~ao acontece na primavera do ano anterior. Essa defasagem exige que o analista escolha janelas temporais alinhadas ao ciclo da cultura, e n\~ao apenas indicadores anuais de precipita\c{c}\~ao e temperatura \cite{meireles2009}.
 
 Varginha/MG \'e um dos principais polos cafeeiros do Sul de Minas e conta com uma esta\c{c}\~ao autom\'atica do INMET (c\'odigo A515) com s\'erie cont\'inua no per\'iodo analisado. Ao mesmo tempo, o IBGE divulga anualmente o rendimento municipal da lavoura por meio da Pesquisa Agr\'icola Municipal (PAM) e o efetivo de rebanhos pela Pesquisa da Pecu\'aria Municipal (PPM). A combina\c{c}\~ao dessas fontes permite construir um painel municipal anual com informa\c{c}\~ao clim\'atica e agron\^omica \cite{inmet2026,ibgePAM2025,ibgePPM2025}.
 
@@ -83,9 +83,9 @@ As hip\'oteses iniciais eram de associa\c{c}\~ao positiva entre chuva e rendimen
 
 Victorino \cite{victorino2015} adaptou um modelo agrometeorol\'ogico de previs\~ao de produtividade para Lavras e Varginha. Os modelos foram sens\'iveis ao d\'eficit h\'idrico entre novembro e abril, e as vari\'aveis associadas \`a flora\c{c}\~ao n\~ao foram significativas. Aparecido et al.\ \cite{aparecido2016} calibraram modelos de regress\~ao m\'ultipla para seis regi\~oes produtoras de Minas Gerais, com anteced\^encia de at\'e seis meses, e conclu\'iram que no Sul de Minas a produtividade \'e controlada por m\'ultiplos elementos meteorol\'ogicos, enquanto no Cerrado Mineiro o regime h\'idrico domina.
 
-Meireles e Japiass\'u \cite{meireles2009} descreveram a fenologia do cafeeiro em Varginha e mostraram que a aus\^encia de chuvas entre setembro e outubro reduziu a dorm\^encia e o crescimento dos ramos, prejudicando a flora\c{c}\~ao. Gomes et al.\ \cite{gomes2026} analisaram tend\^encias de temperatura e precipita\c{c}\~ao entre 1984 e 2023 em duas unidades produtivas do Sul de Minas e encontraram correla\c{c}es de sinais opostos entre elas, atribu\'idas a microclima, uso e cobertura do solo.
+Meireles e Japiass\'u \cite{meireles2009} descreveram a fenologia do cafeeiro em Varginha e mostraram que a aus\^encia de chuvas entre setembro e outubro reduziu a dorm\^encia e o crescimento dos ramos, prejudicando a flora\c{c}\~ao. Gomes et al.\ \cite{gomes2026} analisaram tend\^encias de temperatura e precipita\c{c}\~ao entre 1984 e 2023 em duas unidades produtivas do Sul de Minas e encontraram correla\c{c}\~oes de sinais opostos entre elas, atribu\'idas a microclima, uso e cobertura do solo.
 
-Tais trabalhos empregam s\'eries de esta\c{c}es especializadas, dados de cooperativas ou unidades produtivas espec\'ificas. Este artigo difere ao usar somente bases p\'ublicas e um pipeline de c\'odigo aberto, explicitando o controle de qualidade e a incerteza associada a uma amostra de apenas onze anos.
+Tais trabalhos empregam s\'eries de esta\c{c}\~oes especializadas, dados de cooperativas ou unidades produtivas espec\'ificas. Este artigo difere ao usar somente bases p\'ublicas e um pipeline de c\'odigo aberto, explicitando o controle de qualidade e a incerteza associada a uma amostra de apenas onze anos.
 
 \section{Materiais e m\'etodos}
 
@@ -127,7 +127,7 @@ A agrega\c{c}\~ao foi feita de hora para dia, de dia para m\^es e de m\^es para 
 
 \subsection{Dados agropecu\'arios e outliers}
 
-Os rendimentos e o rebanho foram extra\'idos no n\'ivel municipal pela API SIDRA. O cabe\c{c}alho do JSON retornado alterna entre nomes leg\'iveis e c\'odigos como \texttt{D1N} e \texttt{D4N}; por isso o extrator normaliza as colunas por posi\c{c}\~ao. Valores \texttt{-} ou \texttt{...} foram convertidos em ausentes. Aos percentis 1\% e 99\% das vari\'aveis de produ\c{c}\~ao aplicou-se winsoriza\c{c}\~ao, depois do c\'alculo das anomalias, para evitar que observa\c{c}es extremas distorcessem os coeficientes.
+Os rendimentos e o rebanho foram extra\'idos no n\'ivel municipal pela API SIDRA. O cabe\c{c}alho do JSON retornado alterna entre nomes leg\'iveis e c\'odigos como \texttt{D1N} e \texttt{D4N}; por isso o extrator normaliza as colunas por posi\c{c}\~ao. Valores \texttt{-} ou \texttt{...} foram convertidos em ausentes. Aos percentis 1\% e 99\% das vari\'aveis de produ\c{c}\~ao aplicou-se winsoriza\c{c}\~ao, depois do c\'alculo das anomalias, para evitar que observa\c{c}\~oes extremas distorcessem os coeficientes.
 
 \subsection{T\'ecnicas estat\'isticas}
 
@@ -308,13 +308,13 @@ A Figura~\ref{fig:indice} mostra as s\'eries normalizadas com base em 2015. O ca
 
 \section{Discuss\~ao}
 
-Os resultados n\~ao confirmam a hip\'otese de que a chuva anual explica o rendimento do caf\'e em Varginha. Isso n\~ao contradiz a literatura: Victorino \cite{victorino2015} e Aparecido et al.\ \cite{aparecido2016} obtiveram modelos \'uteis ao empregar vari\'aveis de d\'eficit h\'idrico e m\'ultiplas janelas mensais, com s\'eries mais longas e dados de esta\c{c}es ou cooperativas locais. Gomes et al.\ \cite{gomes2026} encontraram correla\c{c}es de sinais opostos entre unidades pr\'oximas no Sul de Minas, o que refor\c{c}a a conclus\~ao de que o efeito do clima \'e local e n\~ao capturado integralmente por uma \'unica esta\c{c}\~ao.
+Os resultados n\~ao confirmam a hip\'otese de que a chuva anual explica o rendimento do caf\'e em Varginha. Isso n\~ao contradiz a literatura: Victorino \cite{victorino2015} e Aparecido et al.\ \cite{aparecido2016} obtiveram modelos \'uteis ao empregar vari\'aveis de d\'eficit h\'idrico e m\'ultiplas janelas mensais, com s\'eries mais longas e dados de esta\c{c}\~oes ou cooperativas locais. Gomes et al.\ \cite{gomes2026} encontraram correla\c{c}\~oes de sinais opostos entre unidades pr\'oximas no Sul de Minas, o que refor\c{c}a a conclus\~ao de que o efeito do clima \'e local e n\~ao capturado integralmente por uma \'unica esta\c{c}\~ao.
 
 A dire\c{c}\~ao negativa da temperatura na flora\c{c}\~ao e a dire\c{c}\~ao positiva da chuva de janeiro s\~ao coerentes com a fenologia descrita por Meireles e Japiass\'u \cite{meireles2009}. Contudo, com onze observa\c{c}\~oes anuais, o poder estat\'istico \'e baixo: na correla\c{c}\~ao de Spearman, seria necess\'ario um coeficiente pr\'oximo de 0,6 para atingir signific\^ancia a 5\%. Assim, a aus\^encia de signific\^ancia n\~ao prova a aus\^encia de efeito; apenas indica que os dados n\~ao permitem detect\'a-lo.
 
 O epis\'odio dos meses com precipita\c{c}\~ao zero ilustra uma li\c{c}\~ao metodol\'ogica mais ampla. Sem a imputa\c{c}\~ao, o rebanho bovino parecia responder \`a chuva do ano anterior com $R^2=0{,}54$ e $p=0{,}015$; ap\'os a corre\c{c}\~ao, a associa\c{c}\~ao desapareceu. Em s\'eries curtas, uma \'unica falha de sensor pode dominar os resultados. Recomenda-se, portanto, que pipelines p\'ublicos registrem explicitamente quais observa\c{c}\~oes foram imputadas e forne\c{c}am uma an\'alise de sensibilidade.
 
-Entre as limita\c{c}es, destacam-se: uma \'unica esta\c{c}\~ao, que n\~ao representa a heterogeneidade espacial do munic\'ipio; 19 meses imputados, oito em 2023; o descompasso entre o ano civil do SIDRA e o ciclo agr\'icola do caf\'e; vari\'aveis de confus\~ao n\~ao observadas, como pre\c{c}o, \'area colhida, tecnologia, pragas e bienalidade; e o car\'ater preliminar dos dados de 2025. A an\'alise de janelas mensais envolve doze testes e sofre com multiplicidade de compara\c{c}\~oes.
+Entre as limita\c{c}\~oes, destacam-se: uma \'unica esta\c{c}\~ao, que n\~ao representa a heterogeneidade espacial do munic\'ipio; 19 meses imputados, oito em 2023; o descompasso entre o ano civil do SIDRA e o ciclo agr\'icola do caf\'e; vari\'aveis de confus\~ao n\~ao observadas, como pre\c{c}o, \'area colhida, tecnologia, pragas e bienalidade; e o car\'ater preliminar dos dados de 2025. A an\'alise de janelas mensais envolve doze testes e sofre com multiplicidade de compara\c{c}\~oes.
 
 \section{Conclus\~ao}
 

@@ -52,7 +52,7 @@
 \end{abstract}
 
 \begin{resumo}
-  Este trabalho cruza observa{\c{c}}es meteorol{\'o}gicas hor{\'a}rias do INMET com
+  Este trabalho cruza observa{\c{c}}{\~o}es meteorol{\'o}gicas hor{\'a}rias do INMET com
   estat{\'i}sticas agropecu{\'a}rias municipais do IBGE para investigar se anomalias
   clim{\'a}ticas explicam o desempenho agr{\'i}cola anual em Varginha/MG, principal
   regi{\~a}o cafeeira do Sul de Minas. Construiu-se um pipeline ETL reproduz{\'i}vel em
@@ -63,7 +63,7 @@
   incompat{\'i}veis com a climatologia local, foram tratadas como falha de sensor
   e imputadas pela mediana mensal. A anomalia anual de chuva apresenta
   associa{\c{c}}{\~a}o fraca e n{\~a}o significativa com o rendimento do caf{\'e}
-  ($\rho=0,27$; $p=0,42$); flora{\c{c}}es mais quentes antecedem menores rendimentos
+  ($\rho=0,27$; $p=0,42$); flora{\c{c}}{\~o}es mais quentes antecedem menores rendimentos
   ($\rho=-0,42$; $p=0,23$), sem signific{\^a}ncia. Tamb{\'e}m n{\~a}o foi detectada
   associa{\c{c}}{\~a}o com o rebanho bovino. Destacam-se o valor da integra{\c{c}}{\~a}o de
   dados abertos, o controle de qualidade de sensores e a necessidade de s{\'e}ries
@@ -75,7 +75,7 @@
 \section{Introdu{\c{c}}{\~a}o}
 
 A cafeicultura brasileira {\'e} sens{\'i}vel {\`a} distribui{\c{c}}{\~a}o de precipita{\c{c}}{\~a}o e
-{\`a}s oscila{\c{c}}es de temperatura, especialmente durante a flora{\c{c}}{\~a}o e a
+{\`a}s oscila{\c{c}}{\~o}es de temperatura, especialmente durante a flora{\c{c}}{\~a}o e a
 forma{\c{c}}{\~a}o de frutos \cite{ipcc2021,aparecido2016}. No Sul de Minas Gerais, a
 safra {\'e} colhida principalmente entre abril e agosto, e a flora{\c{c}}{\~a}o ocorre na
 primavera do ano anterior, o que torna a escolha da janela temporal t{\~a}o
@@ -86,7 +86,7 @@ da esta{\c{c}}{\~a}o autom{\'a}tica A515 do INMET e com estat{\'i}sticas municip
 IBGE. Apesar da disponibilidade desses dados, ainda s{\~a}o escassos os estudos
 reproduz{\'i}veis que integram as duas fontes com ferramentas computacionais
 abertas. Este trabalho tem por objetivo responder: (i) anomalias de chuva e
-temperatura explicam varia{\c{c}}es anuais do rendimento do caf{\'e} em Varginha? (ii)
+temperatura explicam varia{\c{c}}{\~o}es anuais do rendimento do caf{\'e} em Varginha? (ii)
 janelas fenol{\'o}gicas apresentam associa{\c{c}}{\~a}o mais forte que a m{\'e}dia anual? e
 (iii) o rebanho bovino responde {\`a} precipita{\c{c}}{\~a}o com defasagem de um ano?
 
@@ -99,12 +99,12 @@ modelos de regress{\~a}o m{\'u}ltipla para seis regi{\~o}es produtoras de Minas 
 anteced{\^e}ncia de at{\'e} seis meses, e observaram que no Sul de Minas a produtividade
 {\'e} controlada por m{\'u}ltiplos elementos meteorol{\'o}gicos. Gomes et al.\ \cite{gomes2026}
 analisaram tend{\^e}ncias clim{\'a}ticas de 1984 a 2023 em duas unidades produtivas do
-Sul de Minas e verificaram correla{\c{c}}es de sinais opostos entre elas, atribu{\'i}das
-{\`a}s condi{\c{c}}es locais de microclima e uso do solo. Meireles e Japiass{\'u}
+Sul de Minas e verificaram correla{\c{c}}{\~o}es de sinais opostos entre elas, atribu{\'i}das
+{\`a}s condi{\c{c}}{\~o}es locais de microclima e uso do solo. Meireles e Japiass{\'u}
 \cite{meireles2009} detalharam a fenologia do cafeeiro em Varginha e mostraram que a
 aus{\^e}ncia de chuvas em setembro e outubro compromete a flora{\c{c}}{\~a}o.
 
-Diferentemente desses trabalhos, que empregam s{\'e}ries de esta{\c{c}}es
+Diferentemente desses trabalhos, que empregam s{\'e}ries de esta{\c{c}}{\~o}es
 especializadas ou dados de cooperativas, este artigo usa exclusivamente bases
 p{\'u}blicas e um pipeline de c{\'o}digo aberto, quantificando a incerteza associada a
 uma amostra curta e disponibilizando o processo de junção e limpeza em \url{https://github.com/LuigiPenachio/clima-cafe-varginha-pandas}.
@@ -114,11 +114,11 @@ uma amostra curta e disponibilizando o processo de junção e limpeza em \url{ht
 \subsection{Extra{\c{c}}{\~a}o e jun{\c{c}}{\~a}o}
 
 Foram utilizadas tr{\^e}s bases: (1) arquivos ZIP anuais do BDMEP/INMET
-\cite{inmet2026}, contendo medi{\c{c}}es hor{\'a}rias de todas as esta{\c{c}}es autom{\'a}ticas
+\cite{inmet2026}, contendo medi{\c{c}}{\~o}es hor{\'a}rias de todas as esta{\c{c}}{\~o}es autom{\'a}ticas
 de 2015 a 2025; (2) a Pesquisa Agr{\'i}cola Municipal (PAM), tabela SIDRA 5457, com o
 rendimento m{\'e}dio do caf{\'e} em gr{\~a}o (produto 40139), milho e soja no munic{\'i}pio
 3170701 \cite{ibgePAM2025}; e (3) a Pesquisa da Pecu{\'a}ria Municipal (PPM), tabela
-3939, com o efetivo de bovinos \cite{ibgePPM2025}. A esta{\c{c}}o A515 est{\'a} localizada
+3939, com o efetivo de bovinos \cite{ibgePPM2025}. A esta{\c{c}}{\~a}o A515 est{\'a} localizada
 no pr{\'o}prio munic{\'i}pio (latitude $-21{,}5664^\circ$, longitude $-45{,}4042^\circ$),
 portanto a chave de jun{\c{c}}{\~a}o adotada foi o \textbf{ano}, com esta{\c{c}}{\~a}o e
 munic{\'i}pio como atributos fixos. As janelas fenol{\'o}gicas que envolvem a
@@ -144,7 +144,7 @@ painel. Anomalias z foram calculadas por vari{\'a}vel usando o per{\'i}odo
 
 \subsection{T{\'e}cnicas estat{\'i}sticas}
 
-Foram empregadas correla{\c{c}}es de Pearson e Spearman, regress{\~a}o linear OLS com
+Foram empregadas correla{\c{c}}{\~o}es de Pearson e Spearman, regress{\~a}o linear OLS com
 modelos de uma e duas vari{\'a}veis (incluindo um termo quadr{\'a}tico), teste n{\~a}o
 param{\'e}trico de Mann--Whitney para comparar anos secos e chuvosos, e uma regress{\~a}o
 com defasagem de um ano para o rebanho bovino, al{\'e}m de uma an{\'a}lise de sensibilidade
@@ -154,7 +154,7 @@ Pandas \cite{mckinney2010}, SciPy \cite{virtanen2020} e Statsmodels
 
 \section{Resultados}
 
-A Figura~\ref{fig:mapa} localiza o munic{\'i}pio e a esta{\c{c}}o, e a
+A Figura~\ref{fig:mapa} localiza o munic{\'i}pio e a esta{\c{c}}{\~a}o, e a
 Figura~\ref{fig:clima} mostra a climatologia mensal: dezembro {\'e} o m{\^e}s mais
 chuvoso, seguido de janeiro, e julho e agosto s{\~a}o os mais secos, padr{\~a}o
 compat{\'i}vel com o regime do Sul de Minas. No per{\'i}odo, a precipita{\c{c}}{\~a}o anual m{\'e}dia, ap{\'o}s imputa{\c{c}}{\~a}o, foi de
@@ -164,7 +164,7 @@ m{\'e}dio do caf{\'e} foi de 1567\,kg/ha, variando de 1038 a 2122\,kg/ha.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{figuras/01_mapa_varginha.png}
-\caption{Localiza{\c{c}}{\~a}o de Varginha em Minas Gerais e da esta{\c{c}}o autom{\'a}tica A515.}
+\caption{Localiza{\c{c}}{\~a}o de Varginha em Minas Gerais e da esta{\c{c}}{\~a}o autom{\'a}tica A515.}
 \label{fig:mapa}
 \end{figure}
 
@@ -175,7 +175,7 @@ m{\'e}dio do caf{\'e} foi de 1567\,kg/ha, variando de 1038 a 2122\,kg/ha.
 \label{fig:clima}
 \end{figure}
 
-A Tabela~\ref{tab:corr} resume as correla{\c{c}}es com o rendimento do caf{\'e}. A chuva
+A Tabela~\ref{tab:corr} resume as correla{\c{c}}{\~o}es com o rendimento do caf{\'e}. A chuva
 anual apresentou $\rho=0{,}27$ ($p=0{,}42$) e a chuva na frutifica{\c{c}}{\~a}o $\rho=0{,}41$
 ($p=0{,}24$); a temperatura na flora{\c{c}}{\~a}o teve $\rho=-0{,}42$ ($p=0{,}23$).
 Nenhuma associa{\c{c}}{\~a}o foi significativa a 5\%. A an{\'a}lise explorat{\'o}ria por m{\^e}s
@@ -238,7 +238,7 @@ esp{\'u}ria com o rebanho bovino ($R^2=0{,}54$), que desapareceu ap{\'o}s a corr
 Isso n{\~a}o contradiz a literatura: Victorino
 \cite{victorino2015} e Aparecido et al.\ \cite{aparecido2016} obtiveram modelos
 {\'u}teis ao usar vari{\'a}veis de d{\'e}ficit h{\'i}drico e m{\'u}ltiplas janelas mensais,
-enquanto Gomes et al.\ \cite{gomes2026} encontraram correla{\c{c}}es divergentes entre
+enquanto Gomes et al.\ \cite{gomes2026} encontraram correla{\c{c}}{\~o}es divergentes entre
 unidades pr{\'o}ximas. A dire{\c{c}}{\~a}o negativa da temperatura na flora{\c{c}}{\~a}o e a
 dire{\c{c}}{\~a}o positiva da chuva de janeiro s{\~a}o coerentes com a fenologia descrita
 por Meireles e Japiass{\'u} \cite{meireles2009}, mas o tamanho amostral ($n=11$) n{\~a}o
@@ -247,7 +247,7 @@ $0{,}6$ j{\'a} seria necess{\'a}rio para signific{\^a}ncia a 5\%.
 
 A aus{\^e}ncia de associa{\c{c}}{\~a}o com o rebanho bovino tamb{\'e}m pode refletir a
 tend{\^e}ncia descendente da s{\'e}rie e fatores econ{\^o}micos n{\~a}o observados. Como
-limita{\c{c}}es, citam-se: uma {\'u}nica esta{\c{c}}o, o descompasso entre ano civil e ciclo
+limita{\c{c}}{\~o}es, citam-se: uma {\'u}nica esta{\c{c}}{\~a}o, o descompasso entre ano civil e ciclo
 cafeeiro, os 19 meses imputados (oito deles em 2023), fatores de confus{\~a}o n{\~a}o
 observados (pre{\c{c}}o, {\'a}rea colhida, tecnologia, pragas), o car{\'a}ter preliminar dos
 dados de 2025 e a multiplicidade de testes nas janelas mensais.
@@ -260,7 +260,7 @@ efeitos significativos do clima sobre o rendimento anual do caf{\'e} ou sobre o
 rebanho bovino. Como contribui{\c{c}}{\~a}o, o c{\'o}digo aberto documenta o tratamento dos
 dois layouts do INMET, a detec{\c{c}}{\~a}o de falhas de sensor, a jun{\c{c}}{\~a}o via API SIDRA
 e as janelas fenol{\'o}gicas. Trabalhos futuros devem ampliar a s{\'e}rie, incluir
-esta{\c{c}}es vizinhas e balan{\c{c}}o h{\'i}drico, e avaliar modelos com efeitos de
+esta{\c{c}}{\~o}es vizinhas e balan{\c{c}}o h{\'i}drico, e avaliar modelos com efeitos de
 bienalidade da safra.
 
 \bibliographystyle{sbc}
