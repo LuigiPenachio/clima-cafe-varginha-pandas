@@ -9,18 +9,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{verbatim}
 \usepackage{graphicx}
-\usepackage{hyperref}
-\hypersetup{
-  setpagesize = false,
-  colorlinks  = true,
-  urlcolor    = blue,
-  linkcolor   = black,
-  citecolor   = black
-}
-\urlstyle{same}
-\usepackage{setspace}
-\usepackage[num,bibjustif,recuo=0.8cm]{abntex2cite}
-\citebrackets[]
+\usepackage[num]{abntex2cite}
+\usepackage[a4paper]{geometry}
 
 \title{An\'alise da rela\c{c}\~ao entre clima e desempenho agr\'icola em Varginha/MG: um estudo com pandas e dados p\'ublicos (2015--2025)}
 \englishtitle{Climate and agricultural performance in Varginha/MG: a study with pandas and open data (2015--2025)}
@@ -46,21 +36,20 @@
 
 
 \maketitle
+
 \selectlanguage{brazilian}
 
 \begin{abstract}
 Este trabalho integra dados do INMET e do IBGE para avaliar se anomalias clim\'aticas explicam o desempenho da cafeicultura em Varginha/MG entre 2015 e 2025. Um pipeline em Python e Pandas agrega medi\c{c}es da esta\c{c}\~ao A515 em indicadores anuais e janelas fenol\'ogicas e as junta aos rendimentos da PAM e ao rebanho da PPM, usando o ano como chave. Sequ\^encias longas de precipita\c{c}\~ao zero, identificadas como falha de sensor, foram imputadas pela mediana mensal. Correla\c{c}\~ao de Spearman, regress\~ao OLS, teste de Mann--Whitney e an\'alise de sensibilidade foram aplicados. A chuva anual apresentou $\rho=0,273$ ($p=0,416$) com o rendimento do caf\'e; a temperatura na flora\c{c}\~ao, $\rho=-0,418$ ($p=0,229$). Nenhuma rela\c{c}\~ao foi significativa a 5\%. Com onze anos de dados, n\~ao h\'a evid\^encia de efeito clim\'atico detect\'avel, o que refor\c{c}a a import\^ancia do controle de qualidade de sensores.
 \end{abstract}
 
-\begin{keywords}
-An\'alise de dados. Cafeicultura. Dados abertos.
-\end{keywords}
-
-\vspace{6pt}
-
 \begin{abstractinenglish}
 \emph{This paper integrates meteorological data from the Brazilian National Institute of Meteorology (INMET) and municipal agricultural statistics from the Brazilian Institute of Geography and Statistics (IBGE) to assess whether climate anomalies explain coffee performance in Varginha, southern Minas Gerais, from 2015 to 2025. A reproducible Python/Pandas pipeline aggregates hourly records from station A515 into annual indicators and coffee phenological windows, and joins them to crop yields and cattle herd data using the year as key. Long zero-precipitation sequences, identified as sensor failure, were imputed with monthly medians. Spearman correlation, multiple linear regression, the Mann--Whitney test and a sensitivity analysis were applied. Annual rainfall showed $\rho=0.273$ ($p=0.416$) with coffee yield; temperature during flowering showed $\rho=-0.418$ ($p=0.229$). No relationship was significant at the 5\% level. With eleven annual observations, no detectable climatic effect was found, highlighting the importance of sensor quality control in public datasets.}
 \end{abstractinenglish}
+
+\begin{keywords}
+An\'alise de dados. Cafeicultura. Dados abertos.
+\end{keywords}
 
 \begin{keywordsenglish}
 \emph{Coffee. Data analysis. Open data.}
