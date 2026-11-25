@@ -1,0 +1,8 @@
+variavel,n,pearson_r,pearson_p,spearman_rho,spearman_p
+precip_frutificacao_anom,10,0.359,0.3082,0.406,0.2443
+precip_anual_anom,11,0.206,0.5425,0.273,0.416
+precip_floracao_anom,10,0.327,0.3562,0.224,0.5334
+precip_colheita_anom,11,0.206,0.5442,0.187,0.5824
+temp_media_anom,11,-0.12,0.7246,-0.005,0.9894
+dias_quentes_anom,11,0.157,0.6446,-0.048,0.8879
+temp_floracao_anom,10,-0.36,0.3075,-0.418,0.2291

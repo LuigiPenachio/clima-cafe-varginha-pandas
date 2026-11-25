@@ -1,0 +1,31 @@
+# Documentação interna (não é parte do artigo nem do repositório público)
+context.md
+entendendo_o_trabalho.md
+entendendo_o_trabalho.html
+.render_guia_profile/
+
+# Ambiente Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Dados brutos e geodados baixados automaticamente
+data/raw/*.zip
+data/raw/*.geojson
+
+# Artefatos gerados e temporários
+*.pdf
+*.zip
+*.tmp
+*.swp
+Thumbs.db
+.DS_Store
+
+# Arquivos de configuração de editores
+.vscode/
+.idea/
+
+# Cópia de referência do modelo oficial da RBCA
+artigo_rbca/modelo_oficial/

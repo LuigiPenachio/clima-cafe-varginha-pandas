@@ -1,0 +1,70 @@
+=== ESTATÍSTICA DESCRITIVA (Varginha, 2015-2025) ===
+                    mean     std       min       max
+precip_anual     1047.60  245.36    727.80   1476.20
+temp_media         20.47    0.41     19.93     21.37
+dias_quentes        1.82    2.75      0.00      8.00
+rend_cafe        1567.24  372.89   1038.00   2121.60
+rend_milho       7187.00  981.47   6000.00   8690.00
+rend_soja        3844.22  269.80   3600.00   4361.00
+rebanho_bovino  16480.98  974.85  14906.00  18176.80
+
+=== CORRELAÇÃO COM O RENDIMENTO DO CAFÉ ===
+                variavel  n  pearson_r  pearson_p  spearman_rho  spearman_p
+precip_frutificacao_anom 10      0.359     0.3082         0.406      0.2443
+       precip_anual_anom 11      0.206     0.5425         0.273      0.4160
+    precip_floracao_anom 10      0.327     0.3562         0.224      0.5334
+    precip_colheita_anom 11      0.206     0.5442         0.187      0.5824
+         temp_media_anom 11     -0.120     0.7246        -0.005      0.9894
+       dias_quentes_anom 11      0.157     0.6446        -0.048      0.8879
+      temp_floracao_anom 10     -0.360     0.3075        -0.418      0.2291
+
+=== JANELAS MENSAIS DE PRECIPITAÇÃO (exploratório) ===
+ mes  spearman_rho      p
+   1         0.446 0.1686
+   2         0.223 0.5094
+   3         0.241 0.4744
+   4         0.155 0.6493
+   5        -0.060 0.8614
+   6         0.175 0.6074
+   7        -0.423 0.1949
+   8         0.363 0.2722
+   9        -0.105 0.7591
+  10         0.128 0.7086
+  11         0.285 0.3949
+  12        -0.405 0.2171
+
+=== REGRESSÕES OLS ===
+
+M1: anomalia de chuva anual
+  R2=0.043  R2_adj=-0.064  F_p=0.5425  n=11
+  Intercept: beta=0.000, p=1.0000
+  precip_anual_anom: beta=0.206, p=0.5425
+
+M2: chuva na frutificacao + calor na floracao
+  R2=0.205  R2_adj=-0.022  F_p=0.4472  n=10
+  Intercept: beta=0.097, p=0.7691
+  precip_frutificacao_anom: beta=0.285, p=0.4399
+  temp_floracao_anom: beta=-0.285, p=0.4388
+
+M3: termo quadratico da chuva anual
+  R2=0.093  R2_adj=-0.134  F_p=0.6778  n=11
+  Intercept: beta=0.227, p=0.6411
+  precip_anual_anom: beta=0.267, p=0.4657
+  I(precip_anual_anom ** 2): beta=-0.250, p=0.5252
+
+M4: chuva de janeiro (janela exploratoria)
+  R2=0.078  R2_adj=-0.024  F_p=0.4050  n=11
+  Intercept: beta=0.000, p=1.0000
+  precip_jan_anom: beta=0.280, p=0.4050
+
+=== TESTE DE MANN-WHITNEY (anos secos x chuvosos) ===
+U=5.5, p=1.0000
+  secos=[-0.015, 0.889, -0.973, -0.654]  normais=[1.485, 1.421, -1.452, -0.494]  chuvosos=[-0.973, 0.463, 0.304]
+
+=== REBANHO BOVINO x CHUVA DO ANO ANTERIOR ===
+R2=0.001  beta=0.029  p=0.9395  n=10
+
+=== ANÁLISE DE SENSIBILIDADE (sem anos com falha longa) ===
+Anos sem falha longa de precipitação (n=7): 2015, 2016, 2017, 2018, 2020, 2021, 2025
+  precip_anual_anom: rho=0.234, p=0.6132, n=7
+  temp_floracao_anom: rho=-0.886, p=0.0188, n=6
